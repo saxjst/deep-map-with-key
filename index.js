@@ -1,3 +1,3 @@
-const dummyFunction = _ => _;
+const deepMapWithKey = _ => _;
 
-module.exports = dummyFunction;
+module.exports = deepMapWithKey;
