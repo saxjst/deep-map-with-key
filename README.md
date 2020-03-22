@@ -18,9 +18,43 @@ $ npm install deep-map-with-key
 ## Usage
 
 ```js
+const { deepMapWithKey } = require("./backend-lib/deep-map-with-key");
+
+const double = (key, val) => val * 2;
+
+const cart = {
+  rice: 2,
+    fruits: {
+      apple: 4,
+      orange: 8
+    }
+  }
+};
+
+deepMapWithKey(double, cart); //=> { rice: 4, fruits: { apple: 8, orange: 16 } }
 ```
 
 ## API
+
+### deepMapWithKey ⇒ `Object` \| `Array`
+
+Creates a new functor with the results of calling a provided function on every element in the calling functor and its key
+
+**Returns**: <code>Object</code> \| <code>Array</code> - Returns a new value after applying rules  
+**Sig**: ((String, \*) -> \*) -> Object \| Array -> Object | Array
+
+| Param   | Type                                      | Description                                                    |
+| ------- | ----------------------------------------- | -------------------------------------------------------------- |
+| fn      | <code>function</code>                     | The function to be called on every element of the input `list` |
+| functor | <code>Object</code> \| <code>Array</code> | The functor to iterate over                                    |
+
+**Example**
+
+```js
+const cart = { rice: 2, fruits: { apple: 4, orange: 8 } } };
+const double = (key, val) => val * 2;
+deepMapWithKey(double, cart); //=> { rice: 4, fruits: { apple: 8, orange: 16 } }
+```
 
 ## License
 
