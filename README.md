@@ -20,7 +20,7 @@ $ npm install deep-map-with-key
 ```js
 const { deepMapWithKey } = require("./backend-lib/deep-map-with-key");
 
-const double = (key, val) => val * 2;
+const double = (number) => number * 2;
 
 const cart = {
   rice: 2,
@@ -52,7 +52,7 @@ Creates a new functor with the results of calling a provided function on every e
 
 ```js
 const cart = { rice: 2, fruits: { apple: 4, orange: 8 } } };
-const double = (key, val) => val * 2;
+const double = (number) => number * 2;
 deepMapWithKey(double, cart); //=> { rice: 4, fruits: { apple: 8, orange: 16 } }
 ```
 
