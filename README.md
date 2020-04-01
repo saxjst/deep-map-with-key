@@ -18,7 +18,7 @@ $ npm install deep-map-with-key
 ## Usage
 
 ```js
-const { deepMapWithKey } = require("./backend-lib/deep-map-with-key");
+const { deepMapWithKey } = require("deep-map-with-key");
 
 const double = (number) => number * 2;
 
