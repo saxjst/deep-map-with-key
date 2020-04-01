@@ -2,7 +2,7 @@ const R = require("ramda");
 
 /** Check that the sending type is the type of an object
  *
- * @param {Function} type
+ * @param {Object} type
  * @return {Boolean}
  * @api private
  */
@@ -36,7 +36,7 @@ const deepMapWithKey = R.curry((fn, functor) => {
       if (isClassicalObject(keyType)) {
         newObj[key] = deepMapWithKey(fn, functor[key]);
       } else {
-        newObj[key] = fn(key, functor[key]);
+        newObj[key] = fn(functor[key], key);
       }
     });
   } else if (functorType === "[object Array]") {
@@ -46,10 +46,10 @@ const deepMapWithKey = R.curry((fn, functor) => {
       if (isClassicalObject(keyType)) {
         return deepMapWithKey(fn, val);
       }
-      return fn(index.toString(), val);
+      return fn(val, index.toString());
     });
   } else {
-    newObj = fn("no-key", functor);
+    newObj = fn(functor);
   }
 
   return newObj;

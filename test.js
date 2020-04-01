@@ -7,7 +7,7 @@ describe("deepMapWithKey tests", () => {
 
   describe("depth test", () => {
     // for test purpose
-    const double = (key, number) => number * 2;
+    const double = number => number * 2;
 
     const veryDeepObj = {
       a: 1,
